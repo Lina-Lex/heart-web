@@ -57,14 +57,14 @@ def get_password_hash(password):
     return pwd_context.hash(password)
 
 
-def authenticate_user(db, username: str, password: str):
+async def authenticate_user(db, username: str, password: str):
     """
     authenticate username/password
     :param username:
     :param password:
     :return:
     """
-    user = get_user(db, username)
+    user = await get_user(db, username)
     if not user:
         return False
     if not verify_password(password, user.hashed_password):

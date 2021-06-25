@@ -2,12 +2,12 @@ from app.api import User
 from app.models import UserModel
 
 
-def get_user(db, username: str):
+async def get_user(db, username: str):
     user = db.query(UserModel).filter(UserModel.username == username).first()
     return user
 
 
-def create_user(db, user: UserModel):
+async def create_user(db, user: UserModel):
     db.add(user)
     db.commit()
     db.refresh(user)

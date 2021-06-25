@@ -1,4 +1,4 @@
-from app.db import Base, engine
+# from app.db import Base, engine
 from app.routers.auth import router as auth_router
 from fastapi import APIRouter, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -30,4 +30,4 @@ app.add_middleware(
 )
 
 
-Base.metadata.create_all(engine)
+# Base.metadata.create_all(engine)
